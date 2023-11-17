@@ -19,7 +19,7 @@ interface Article {
 
 type Articles = Article[];
 
-interface Response {
+export interface Response {
   status: string;
   articles: Articles;
   totalResults: number;

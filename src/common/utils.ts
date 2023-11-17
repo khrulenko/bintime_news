@@ -1,8 +1,8 @@
-import { State } from '../data/store';
+import { RootState } from '../data/store';
 
 const createSelector =
-  <K extends keyof State>(dataField: K) =>
-  (state: State) =>
+  <K extends keyof RootState>(dataField: K) =>
+  (state: RootState) =>
     state[dataField];
 
 export { createSelector };

@@ -1,22 +1,21 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { NEWS_API } from '../common/api';
+import { RootState } from './store';
+import { Response } from './slices/newsSlice';
 
-const params = {
-  q: 'a',
-  apiKey: import.meta.env.VITE_NEWS_API_KEY,
-  category: null,
-  country: null,
-  pageSize: null,
-  page: null,
-};
+const fetchNews = createAsyncThunk<Response, void, { state: RootState }>(
+  'news/fetchNews',
+  async (_, { getState }) => {
+    const state = getState();
+    const params = state.queryParams;
 
-const fetchNews = createAsyncThunk('news/fetchNews', async () => {
-  const response = await axios.get(NEWS_API, {
-    params,
-  });
+    const response = await axios.get(NEWS_API, {
+      params,
+    });
 
-  return response.data;
-});
+    return response.data;
+  }
+);
 
 export { fetchNews };
