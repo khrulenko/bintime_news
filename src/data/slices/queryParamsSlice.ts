@@ -1,11 +1,12 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { OrNull } from '../../common/types';
+import { Categories, Countries } from '../../common/constants';
 
 export type QueryParams = {
   q: string;
   apiKey: string;
-  category: OrNull<string>;
-  country: OrNull<string>;
+  category: OrNull<Categories>;
+  country: OrNull<Countries>;
   pageSize: OrNull<number>;
   page: OrNull<number>;
 };
@@ -26,10 +27,10 @@ const queryParamsSlice = createSlice({
     setQuery: (state, { payload }: PayloadAction<string>) => {
       state.q = payload;
     },
-    setCategory: (state, { payload }: PayloadAction<OrNull<string>>) => {
+    setCategory: (state, { payload }: PayloadAction<OrNull<Categories>>) => {
       state.category = payload;
     },
-    setCountry: (state, { payload }: PayloadAction<OrNull<string>>) => {
+    setCountry: (state, { payload }: PayloadAction<OrNull<Countries>>) => {
       state.country = payload;
     },
     setPageSize: (state, { payload }: PayloadAction<OrNull<number>>) => {
