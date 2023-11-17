@@ -13,6 +13,7 @@
   - toolkit
   - thunk
 - Axios
+- React Router
 
 ## Getting Started:
 

@@ -1,21 +1,17 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { getNews } from './data/slices/newsSlice';
+import AppRoutes from './routing/Routes';
 import { useEffect } from 'react';
-import { fetchNews } from './data/thunks';
+import { useDispatch } from 'react-redux';
 import { AppDispatch } from './common/types';
+import { fetchNews } from './data/thunks';
 
 const App = () => {
-  const { articles, error } = useSelector(getNews);
   const dispatch = useDispatch<AppDispatch>();
-
-  console.log('articles:', articles);
-  console.log('error:', error);
 
   useEffect(() => {
     dispatch(fetchNews());
   }, []);
 
-  return <>here will be the news app</>;
+  return <AppRoutes />;
 };
 
 export default App;
