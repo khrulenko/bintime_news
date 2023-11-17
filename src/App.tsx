@@ -5,10 +5,10 @@ import { fetchNews } from './data/thunks';
 import { AppDispatch } from './common/types';
 
 const App = () => {
-  const { posts, error } = useSelector(getNews);
+  const { articles, error } = useSelector(getNews);
   const dispatch = useDispatch<AppDispatch>();
 
-  console.log('posts:', posts);
+  console.log('articles:', articles);
   console.log('error:', error);
 
   useEffect(() => {
