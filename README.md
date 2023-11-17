@@ -9,7 +9,10 @@
 - React
   - hooks
   - functional components
-
+- Redux
+  - toolkit
+  - thunk
+- Axios
 
 ## Getting Started:
 
