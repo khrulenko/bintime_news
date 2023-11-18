@@ -1,8 +1,10 @@
-export const createWrapperStyles = () => ({
+import { StackProps, TypographyProps } from '@mui/material';
+import { StyleFunction } from '../../../common/types';
+
+export const createWrapperStyles: StyleFunction<StackProps> = () => ({
   display: 'flex',
 
   width: '100%',
-  height: '64px',
   padding: '14px 0px',
 
   justifyContent: 'center',
@@ -12,7 +14,7 @@ export const createWrapperStyles = () => ({
   boxShadow: '0px 1px 12.1px 0px rgba(0, 0, 0, 0.14)',
 });
 
-export const createLogoStyles = () => ({
+export const createLogoStyles: StyleFunction<TypographyProps> = () => ({
   fontSize: '42px',
   lineHeight: '36px',
   fontFamily: 'Ubuntu, sans-serif',
