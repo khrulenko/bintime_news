@@ -14,7 +14,12 @@ export const createRowStyles: StyleFunction<TableRowProps> = () => ({
   },
 });
 
-export const createCellStyles: StyleFunction<TableCellProps> = () => ({
+export const createCellStyles: StyleFunction<TableCellProps> = ({
+  theme: {
+    palette: { secondary },
+  },
+}) => ({
   padding: '12px 16px',
-  border: '1px solid #EFEFF3',
+  border: '1px solid',
+  borderColor: secondary.main,
 });

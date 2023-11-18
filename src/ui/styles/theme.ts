@@ -8,6 +8,9 @@ const theme = createTheme({
     MuiLink,
   },
   palette: {
+    secondary: {
+      main: '#EFEFF3',
+    },
     text: {
       primary: '#212932',
     },
