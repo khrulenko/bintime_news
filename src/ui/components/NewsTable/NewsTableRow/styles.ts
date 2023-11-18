@@ -3,7 +3,7 @@ import { TableCellProps } from '@mui/material';
 import { StyleFunction } from '../../../../common/types';
 
 export const createCellStyles: StyleFunction<TableCellProps> = () => ({
-  border: '0.5px solid #EFEFF3',
+  border: '1px solid #EFEFF3',
 });
 
 export const createImageStyles: StyleFunction<

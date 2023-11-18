@@ -3,7 +3,7 @@ import { getNews } from '../../../data/slices/newsSlice';
 import NewsTable from '../../components/NewsTable';
 
 const NewsTablePage = () => {
-  const { totalResults, articles, error } = useSelector(getNews);
+  const { articles } = useSelector(getNews);
 
   return <NewsTable articles={articles} />;
 };

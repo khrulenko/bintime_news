@@ -1,14 +1,15 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { OrNull } from '../../common/types';
 import { Categories, Countries } from '../../common/constants';
+import { createSelector } from '../../common/utils';
 
 export type QueryParams = {
   q: string;
   apiKey: string;
   category: OrNull<Categories>;
   country: OrNull<Countries>;
-  pageSize: OrNull<number>;
-  page: OrNull<number>;
+  pageSize: number;
+  page: number;
 };
 
 const initialState: QueryParams = {
@@ -16,8 +17,8 @@ const initialState: QueryParams = {
   apiKey: import.meta.env.VITE_NEWS_API_KEY,
   category: null,
   country: null,
-  pageSize: null,
-  page: null,
+  pageSize: 5,
+  page: 1,
 };
 
 const queryParamsSlice = createSlice({
@@ -33,15 +34,16 @@ const queryParamsSlice = createSlice({
     setCountry: (state, { payload }: PayloadAction<OrNull<Countries>>) => {
       state.country = payload;
     },
-    setPageSize: (state, { payload }: PayloadAction<OrNull<number>>) => {
+    setPageSize: (state, { payload }: PayloadAction<number>) => {
       state.pageSize = payload;
     },
-    setPage: (state, { payload }: PayloadAction<OrNull<number>>) => {
+    setPage: (state, { payload }: PayloadAction<number>) => {
       state.page = payload;
     },
   },
 });
 
+export const getQueryParams = createSelector('queryParams');
 export const { setQuery, setCategory, setCountry, setPageSize, setPage } =
   queryParamsSlice.actions;
 

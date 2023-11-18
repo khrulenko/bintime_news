@@ -16,5 +16,5 @@ export const createRowStyles: StyleFunction<TableRowProps> = () => ({
 
 export const createCellStyles: StyleFunction<TableCellProps> = () => ({
   padding: '12px 16px',
-  border: '0.5px solid #EFEFF3',
+  border: '1px solid #EFEFF3',
 });

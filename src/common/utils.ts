@@ -7,4 +7,8 @@ const createSelector =
 
 const ISODateToString = (date: string): string => date.split('T')[0];
 
-export { createSelector, ISODateToString };
+const toUiPage = (page: number): number => page - 1;
+
+const toApiPage = (page: number): number => page + 1;
+
+export { createSelector, ISODateToString, toUiPage, toApiPage };

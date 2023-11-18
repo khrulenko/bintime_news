@@ -1,9 +1,10 @@
-import { styled, Table, TableBody } from '@mui/material';
+import { styled, Table, TableBody, TableRow } from '@mui/material';
 import { CSSProperties } from 'styled-components';
 import { Articles } from '../../../data/slices/newsSlice';
 import NewsTableRow from './NewsTableRow';
 import NewsTableHead from './NewsTableHead';
 import { createWrapperStyles } from './styles';
+import Pagination from '../Pagination';
 
 interface TableProps {
   articles: Articles;
@@ -53,8 +54,14 @@ const NewsTable = ({ articles }: TableProps) => {
 
       <TableBody>
         {articles.map((article) => (
-          <NewsTableRow key={article.description} article={article} />
+          //COMM: the server sends items with same ids
+          // that's why url is used as unique value for key
+          <NewsTableRow key={article.url} article={article} />
         ))}
+
+        <TableRow>
+          <Pagination />
+        </TableRow>
       </TableBody>
     </Wrapper>
   );
