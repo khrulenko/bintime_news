@@ -8,7 +8,7 @@ const MainLayout = () => {
     <Stack minHeight="100vh" height="100%">
       <Header />
 
-      <Stack flexGrow="1">
+      <Stack flexGrow="1" padding="32px 136px 60px">
         <Outlet />
       </Stack>
 

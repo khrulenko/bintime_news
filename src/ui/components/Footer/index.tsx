@@ -4,14 +4,12 @@ import {
   createTextStyles,
   createLogoStyles,
   createEmailWrapperStyles,
-  createEmailStyles,
 } from './styles';
 
 const Wrapper = styled(Stack)(createWrapperStyles);
 const Logo = styled(Typography)(createLogoStyles);
 const Text = styled(Typography)(createTextStyles);
 const EmailWrapper = styled(Stack)(createEmailWrapperStyles);
-const Email = styled(Link)(createEmailStyles);
 
 const Footer = () => {
   return (
@@ -26,7 +24,7 @@ const Footer = () => {
         <span className="material-symbols-outlined">mail</span>
 
         <Text>
-          <Email href="mailto:info@formula.com">info@formula.com</Email>
+          <Link href="mailto:info@formula.com">info@formula.com</Link>
         </Text>
       </EmailWrapper>
     </Wrapper>

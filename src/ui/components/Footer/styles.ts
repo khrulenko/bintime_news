@@ -1,4 +1,4 @@
-import { LinkProps, StackProps, TypographyProps } from '@mui/material';
+import { StackProps, TypographyProps } from '@mui/material';
 import { StyleFunction } from '../../../common/types';
 
 export const createWrapperStyles: StyleFunction<StackProps> = () => ({
@@ -29,13 +29,4 @@ export const createEmailWrapperStyles: StyleFunction<StackProps> = () => ({
   flexDirection: 'row',
   gap: '8px',
   alignItems: 'flex-end',
-});
-
-export const createEmailStyles: StyleFunction<LinkProps> = () => ({
-  color: 'inherit',
-  textDecoration: 'none',
-
-  '&:hover': {
-    textDecoration: 'underline',
-  },
 });

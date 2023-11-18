@@ -3,21 +3,21 @@ import { createSelector } from '../../common/utils';
 import { fetchNews } from '../thunks';
 import { OrNull } from '../../common/types';
 
-interface Article {
+export interface Article {
   source: {
     id: OrNull<string>;
     name: string;
   };
-  author: string;
+  author: OrNull<string>;
   title: string;
-  description: string;
+  description: OrNull<string>;
   url: string;
-  urlToImage: string;
+  urlToImage: OrNull<string>;
   publishedAt: string;
   content: string;
 }
 
-type Articles = Article[];
+export type Articles = Article[];
 
 export interface Response {
   status: string;

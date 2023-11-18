@@ -5,4 +5,6 @@ const createSelector =
   (state: RootState) =>
     state[dataField];
 
-export { createSelector };
+const ISODateToString = (date: string): string => date.split('T')[0];
+
+export { createSelector, ISODateToString };
