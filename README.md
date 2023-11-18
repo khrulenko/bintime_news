@@ -14,6 +14,7 @@
   - thunk
 - Axios
 - React Router
+- Material UI
 
 ## Getting Started:
 
