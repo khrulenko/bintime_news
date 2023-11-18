@@ -1,14 +1,11 @@
+import { useSelector } from 'react-redux';
 import { styled, Table, TableBody, TableRow } from '@mui/material';
 import { CSSProperties } from 'styled-components';
-import { Articles } from '../../../data/slices/newsSlice';
+import { getNews } from '../../../data/slices/newsSlice';
 import NewsTableRow from './NewsTableRow';
 import NewsTableHead from './NewsTableHead';
 import { createWrapperStyles } from './styles';
 import Pagination from '../Pagination';
-
-interface TableProps {
-  articles: Articles;
-}
 
 interface HeaderProps {
   title: string;
@@ -47,7 +44,9 @@ const headers: Headers = [
 
 const Wrapper = styled(Table)(createWrapperStyles);
 
-const NewsTable = ({ articles }: TableProps) => {
+const NewsTable = () => {
+  const { articles } = useSelector(getNews);
+
   return (
     <Wrapper>
       <NewsTableHead headers={headers} />
