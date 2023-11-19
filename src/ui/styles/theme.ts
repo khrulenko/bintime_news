@@ -2,12 +2,14 @@ import { createTheme } from '@mui/material';
 import MuiCssBaseline from './muiComponents/MuiCssBaseline';
 import MuiLink from './muiComponents/MuiLInk';
 import MuiButton from './muiComponents/MuiButton';
+import MuiTextField from './muiComponents/MuiTextField';
 
 const theme = createTheme({
   components: {
     MuiCssBaseline,
     MuiLink,
     MuiButton,
+    MuiTextField,
   },
   palette: {
     primary: {

@@ -64,4 +64,6 @@ enum Countries {
   Venuzuela = 've',
 }
 
-export { Categories, Countries };
+const SEARCH_DELAY: number = 1000;
+
+export { Categories, Countries, SEARCH_DELAY };

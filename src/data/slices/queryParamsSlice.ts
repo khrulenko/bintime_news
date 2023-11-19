@@ -10,15 +10,17 @@ export type QueryParams = {
   country: EmptyStrOr<Countries>;
   pageSize: number;
   page: number;
+  language: string;
 };
 
 const initialState: QueryParams = {
-  q: 'a',
+  q: '',
   apiKey: import.meta.env.VITE_NEWS_API_KEY,
   category: '',
   country: '',
   pageSize: 5,
   page: 1,
+  language: 'en',
 };
 
 const queryParamsSlice = createSlice({
