@@ -8,6 +8,7 @@ import { createWrapperStyles } from './styles';
 import Pagination from '../Pagination';
 import WithLoading from '../WithLoading';
 import NoNewsFoundAlert from '../NoNewsFoundAlert';
+import ErrorAlert from '../ErrorAlert';
 
 interface HeaderProps {
   title: string;
@@ -47,11 +48,11 @@ const headers: Headers = [
 const Wrapper = styled(Table)(createWrapperStyles);
 
 const NewsTable = () => {
-  const { articles, loading } = useSelector(getNews);
+  const { articles, loading, error } = useSelector(getNews);
 
-  if (!articles.length && !loading) {
-    return <NoNewsFoundAlert />;
-  }
+  if (!articles.length && !loading) return <NoNewsFoundAlert />;
+
+  if (error) return <ErrorAlert />;
 
   return (
     <WithLoading isLoading={loading}>
