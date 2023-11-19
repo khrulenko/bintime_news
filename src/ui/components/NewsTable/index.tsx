@@ -53,9 +53,7 @@ const NewsTable = () => {
 
       <TableBody>
         {articles.map((article) => (
-          //COMM: the server sends items with same ids
-          // that's why url is used as unique value for key
-          <NewsTableRow key={article.url} article={article} />
+          <NewsTableRow key={article.title} article={article} />
         ))}
 
         <TableRow>

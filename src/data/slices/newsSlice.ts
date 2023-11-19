@@ -1,19 +1,20 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { createSelector } from '../../common/utils';
 import { fetchNews } from '../thunks';
+import { NullOr } from '../../common/types';
 
 export interface Article {
   source: {
     id: string;
     name: string;
   };
-  author: string;
+  author: NullOr<string>;
   title: string;
   description: string;
   url: string;
   urlToImage: string;
   publishedAt: string;
-  content: string;
+  content: NullOr<string>;
 }
 
 export type Articles = Article[];

@@ -1,7 +1,8 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 import MainLayout from '../ui/layouts/MainLayout';
-import { URL_NEWS_TABLE } from './URLs';
+import { URL_ARTICLE, URL_NEWS_TABLE } from './URLs';
 import NewsTablePage from '../ui/pages/NewsTablePage';
+import ArticlePage from '../ui/pages/ArticlePage';
 
 const AppRoutes = () => {
   return (
@@ -9,6 +10,7 @@ const AppRoutes = () => {
       <Route path={'/'} element={<MainLayout />}>
         <Route index element={<Navigate to={URL_NEWS_TABLE} />} />
         <Route path={URL_NEWS_TABLE} element={<NewsTablePage />} />
+        <Route path={URL_ARTICLE} element={<ArticlePage />} />
 
         <Route
           path="*"
