@@ -15,6 +15,7 @@ import {
   createSelectWrapperStyles,
   createItemStyles,
 } from './styles';
+import { splitCamelCaseString } from '../../../common/utils';
 
 interface Props<T> {
   name: string;
@@ -60,7 +61,7 @@ const Dropdown = <T extends string>({
 
           {data.map(([key, value]) => (
             <Item key={key} value={value}>
-              {key}
+              {splitCamelCaseString(key)}
             </Item>
           ))}
         </SelectWrapper>
