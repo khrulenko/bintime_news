@@ -7,6 +7,7 @@ import NewsTableHead from './NewsTableHead';
 import { createWrapperStyles } from './styles';
 import Pagination from '../Pagination';
 import WithLoading from '../WithLoading';
+import NoNewsFoundAlert from '../NoNewsFoundAlert';
 
 interface HeaderProps {
   title: string;
@@ -47,6 +48,10 @@ const Wrapper = styled(Table)(createWrapperStyles);
 
 const NewsTable = () => {
   const { articles, loading } = useSelector(getNews);
+
+  if (!articles.length && !loading) {
+    return <NoNewsFoundAlert />;
+  }
 
   return (
     <WithLoading isLoading={loading}>

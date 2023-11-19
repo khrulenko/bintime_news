@@ -36,7 +36,7 @@ const initialState: News = {
   totalResults: 0,
   articles: [],
   error: false,
-  loading: false,
+  loading: true,
 };
 
 const newsSlice = createSlice({
