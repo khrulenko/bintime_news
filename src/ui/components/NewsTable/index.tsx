@@ -6,6 +6,7 @@ import NewsTableRow from './NewsTableRow';
 import NewsTableHead from './NewsTableHead';
 import { createWrapperStyles } from './styles';
 import Pagination from '../Pagination';
+import WithLoading from '../WithLoading';
 
 interface HeaderProps {
   title: string;
@@ -45,22 +46,24 @@ const headers: Headers = [
 const Wrapper = styled(Table)(createWrapperStyles);
 
 const NewsTable = () => {
-  const { articles } = useSelector(getNews);
+  const { articles, loading } = useSelector(getNews);
 
   return (
-    <Wrapper>
-      <NewsTableHead headers={headers} />
+    <WithLoading isLoading={loading}>
+      <Wrapper>
+        <NewsTableHead headers={headers} />
 
-      <TableBody>
-        {articles.map((article) => (
-          <NewsTableRow key={article.title} article={article} />
-        ))}
+        <TableBody>
+          {articles.map((article) => (
+            <NewsTableRow key={article.title} article={article} />
+          ))}
 
-        <TableRow>
-          <Pagination />
-        </TableRow>
-      </TableBody>
-    </Wrapper>
+          <TableRow>
+            <Pagination />
+          </TableRow>
+        </TableBody>
+      </Wrapper>
+    </WithLoading>
   );
 };
 
