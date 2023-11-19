@@ -1,18 +1,17 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { createSelector } from '../../common/utils';
 import { fetchNews } from '../thunks';
-import { OrNull } from '../../common/types';
 
 export interface Article {
   source: {
-    id: OrNull<string>;
+    id: string;
     name: string;
   };
-  author: OrNull<string>;
+  author: string;
   title: string;
-  description: OrNull<string>;
+  description: string;
   url: string;
-  urlToImage: OrNull<string>;
+  urlToImage: string;
   publishedAt: string;
   content: string;
 }
