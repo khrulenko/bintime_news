@@ -22,6 +22,7 @@ const headers: Headers = [
   {
     title: 'Image',
     width: '12%',
+    minWidth: '120px',
   },
   {
     title: 'Title',
