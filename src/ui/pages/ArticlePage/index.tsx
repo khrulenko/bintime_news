@@ -55,7 +55,7 @@ const ArticlePage = () => {
 
       <Divider />
 
-      <InfoText fontSize="14px">Authors: {author}</InfoText>
+      {author && <InfoText fontSize="14px">Authors: {author}</InfoText>}
     </Stack>
   );
 };
