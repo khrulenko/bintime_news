@@ -1,40 +1,18 @@
-import { useMemo, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useState } from 'react';
 import { styled, Button, Stack, Typography } from '@mui/material';
 import FilterAltOutlinedIcon from '@mui/icons-material/FilterAltOutlined';
 import NewsTable from '../../components/NewsTable';
-import {
-  getQueryParams,
-  setCategory,
-  setCountry,
-} from '../../../data/slices/queryParamsSlice';
-import { Categories, Countries } from '../../../common/constants';
-import Dropdown from '../../components/Dropdown';
-import { AppDispatch, EmptyStrOr } from '../../../common/types';
-import { fetchNews } from '../../../data/thunks';
 import { createFiltersButtonStyles, createHeaderStyles } from './styles';
 import Search from '../../components/Search';
+import Filters from '../../components/Filters';
 
 const FiltersButton = styled(Button)(createFiltersButtonStyles);
 const Header = styled(Typography)(createHeaderStyles);
 
 const NewsTablePage = () => {
-  const dispatch = useDispatch<AppDispatch>();
-  const { category, country } = useSelector(getQueryParams);
   const [showFilters, setShowFilters] = useState<boolean>(false);
 
-  const categories = useMemo(() => Object.entries(Categories), []);
-  const countries = useMemo(() => Object.entries(Countries), []);
-
   const toggleFilters = () => setShowFilters((prev) => !prev);
-  const handleCategoryChange = (value: EmptyStrOr<Categories>) => {
-    dispatch(setCategory(value));
-    dispatch(fetchNews());
-  };
-  const handleCountryChange = (value: EmptyStrOr<Countries>) => {
-    dispatch(setCountry(value));
-    dispatch(fetchNews());
-  };
 
   return (
     <Stack gap="20px">
@@ -54,23 +32,7 @@ const NewsTablePage = () => {
         </Stack>
       </Stack>
 
-      {showFilters && (
-        <Stack direction="row" gap="16px">
-          <Dropdown
-            name="Category"
-            data={categories}
-            value={category}
-            onChange={handleCategoryChange}
-          />
-
-          <Dropdown
-            name="Country"
-            data={countries}
-            value={country}
-            onChange={handleCountryChange}
-          />
-        </Stack>
-      )}
+      {showFilters && <Filters />}
 
       <NewsTable />
     </Stack>
