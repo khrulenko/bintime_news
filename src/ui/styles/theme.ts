@@ -3,6 +3,7 @@ import MuiCssBaseline from './muiComponents/MuiCssBaseline';
 import MuiLink from './muiComponents/MuiLInk';
 import MuiButton from './muiComponents/MuiButton';
 import MuiTextField from './muiComponents/MuiTextField';
+import MuiTablePagination from './muiComponents/MuiTablePagination';
 
 const theme = createTheme({
   components: {
@@ -10,6 +11,7 @@ const theme = createTheme({
     MuiLink,
     MuiButton,
     MuiTextField,
+    MuiTablePagination,
   },
   palette: {
     primary: {
