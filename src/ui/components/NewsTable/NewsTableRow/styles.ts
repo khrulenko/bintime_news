@@ -8,6 +8,9 @@ export const createCellStyles: StyleFunction<TableCellProps> = ({
     palette: { secondary },
   },
 }) => ({
+  height: '100px',
+  padding: '8px 16px',
+
   border: '1px solid',
   borderColor: secondary.main,
 });
