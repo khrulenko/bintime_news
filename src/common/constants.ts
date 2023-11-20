@@ -65,5 +65,6 @@ enum Countries {
 }
 
 const SEARCH_DELAY: number = 600;
+const API_MAX_ITEMS_LIMIT: number = 100;
 
-export { Categories, Countries, SEARCH_DELAY };
+export { Categories, Countries, SEARCH_DELAY, API_MAX_ITEMS_LIMIT };

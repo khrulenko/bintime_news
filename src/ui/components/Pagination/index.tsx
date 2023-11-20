@@ -10,6 +10,7 @@ import { AppDispatch } from '../../../common/types';
 import { getNews } from '../../../data/slices/newsSlice';
 import { fetchNews } from '../../../data/thunks';
 import { toApiPage, toUiPage } from '../../../common/utils';
+import { API_MAX_ITEMS_LIMIT } from '../../../common/constants';
 
 const Wrapper = styled(TablePagination)(createWrapperStyles);
 
@@ -18,7 +19,8 @@ const Pagination = () => {
   const { page, pageSize } = useSelector(getQueryParams);
   const { totalResults } = useSelector(getNews);
 
-  const articlesAmount = totalResults >= 100 ? 100 : totalResults;
+  const articlesAmount =
+    totalResults >= API_MAX_ITEMS_LIMIT ? API_MAX_ITEMS_LIMIT : totalResults;
 
   const handleChangePage = (_event: unknown, newPage: number) => {
     dispatch(setPage(toApiPage(newPage)));
