@@ -8,7 +8,7 @@ export const createCellStyles: StyleFunction<TableCellProps> = ({
     palette: { secondary },
   },
 }) => ({
-  height: '100px',
+  height: '88px',
   padding: '8px 16px',
 
   border: '1px solid',
@@ -20,6 +20,7 @@ export const createImageStyles: StyleFunction<
 > = () => ({
   width: '100%',
   height: '100%',
+  objectFit: 'cover',
 });
 
 export const createArticleLinkStyles: StyleFunction<LinkProps> = () => ({
