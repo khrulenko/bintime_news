@@ -53,9 +53,13 @@ const ArticlePage = () => {
 
       {content && <TextBlock name="Content" content={content} />}
 
-      <Divider />
+      {author && (
+        <>
+          <Divider />
 
-      {author && <InfoText fontSize="14px">Authors: {author}</InfoText>}
+          <InfoText fontSize="14px">Authors: {author}</InfoText>
+        </>
+      )}
     </Stack>
   );
 };

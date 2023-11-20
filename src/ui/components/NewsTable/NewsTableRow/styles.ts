@@ -1,4 +1,5 @@
 import { ImgHTMLAttributes } from 'react';
+import { LinkProps } from 'react-router-dom';
 import { TableCellProps } from '@mui/material';
 import { StyleFunction } from '../../../../common/types';
 
@@ -16,4 +17,13 @@ export const createImageStyles: StyleFunction<
 > = () => ({
   width: '100%',
   height: '100%',
+});
+
+export const createArticleLinkStyles: StyleFunction<LinkProps> = () => ({
+  color: 'inherit',
+  textDecoration: 'none',
+
+  '&:hover': {
+    textDecoration: 'underline',
+  },
 });
