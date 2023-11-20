@@ -23,9 +23,7 @@ const NewsTableRow = ({ article }: Props) => {
       <Cell>{urlToImage ? <Image src={urlToImage} /> : <Skeleton />}</Cell>
 
       <Cell>
-        <Link href={appArticleUrl} target="_blank">
-          {title}
-        </Link>
+        <Link href={appArticleUrl}>{title}</Link>
       </Cell>
 
       <Cell>{author}</Cell>

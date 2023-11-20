@@ -7,7 +7,7 @@ interface Props {
 
 const IconLink = ({ href }: Props) => {
   return (
-    <Link href={href} target="_blank">
+    <Link href={href}>
       <InsertLinkIcon />
     </Link>
   );
