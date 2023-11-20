@@ -1,20 +1,19 @@
-import { ChangeEvent, useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { styled, Button, Stack, Typography, TextField } from '@mui/material';
+import { styled, Button, Stack, Typography } from '@mui/material';
 import FilterAltOutlinedIcon from '@mui/icons-material/FilterAltOutlined';
-import SearchIcon from '@mui/icons-material/Search';
 import NewsTable from '../../components/NewsTable';
 import {
   getQueryParams,
   setCategory,
   setCountry,
-  setQuery,
 } from '../../../data/slices/queryParamsSlice';
-import { Categories, Countries, SEARCH_DELAY } from '../../../common/constants';
+import { Categories, Countries } from '../../../common/constants';
 import Dropdown from '../../components/Dropdown';
-import { AppDispatch, EmptyStrOr, NullOr } from '../../../common/types';
+import { AppDispatch, EmptyStrOr } from '../../../common/types';
 import { fetchNews } from '../../../data/thunks';
 import { createFiltersButtonStyles, createHeaderStyles } from './styles';
+import Search from '../../components/Search';
 
 const FiltersButton = styled(Button)(createFiltersButtonStyles);
 const Header = styled(Typography)(createHeaderStyles);
@@ -26,18 +25,7 @@ const NewsTablePage = () => {
 
   const categories = useMemo(() => Object.entries(Categories), []);
   const countries = useMemo(() => Object.entries(Countries), []);
-  let timerId: NullOr<number> = null;
 
-  const debouncedSetQuery = (value: string) => {
-    if (timerId) clearTimeout(timerId);
-
-    timerId = setTimeout(() => {
-      dispatch(setQuery(value));
-      dispatch(fetchNews());
-    }, SEARCH_DELAY);
-  };
-  const onSearch = (event: ChangeEvent<HTMLInputElement>) =>
-    debouncedSetQuery(event.target.value);
   const toggleFilters = () => setShowFilters((prev) => !prev);
   const handleCategoryChange = (value: EmptyStrOr<Categories>) => {
     dispatch(setCategory(value));
@@ -54,14 +42,7 @@ const NewsTablePage = () => {
         <Header>Formula Top Headlines</Header>
 
         <Stack direction="row" gap="20px">
-          <TextField
-            size="small"
-            placeholder="Search arcticle"
-            onChange={onSearch}
-            InputProps={{
-              startAdornment: <SearchIcon />,
-            }}
-          />
+          <Search />
 
           <FiltersButton
             disableElevation
